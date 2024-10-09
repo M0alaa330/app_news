@@ -1,16 +1,26 @@
 import 'package:app_news/models/artical_model.dart';
+import 'package:app_news/screens/articledetails_screen.dart';
 import 'package:flutter/material.dart';
 
 class Articlecard extends StatelessWidget {
-  Articlecard({super.key, required this.a});
+  Articlecard({
+    super.key,
+    required this.a,
+  });
   final ArticalModel a;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      splashColor: Colors.black,
       onTap: () {
-        Navigator.pushNamed(context, "articledetails", arguments: a);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ArticledetailsScreen(
+              url: a.url,
+            ),
+          ),
+        );
       },
       child: Padding(
         padding: EdgeInsets.symmetric(vertical: 6.0, horizontal: 8),

@@ -1,5 +1,6 @@
 import 'package:app_news/apis/api_services.dart';
 import 'package:app_news/models/artical_model.dart';
+import 'package:app_news/widgets/article_listview.dart';
 import 'package:app_news/widgets/articlecard.dart';
 import 'package:app_news/widgets/category_listview.dart';
 import 'package:flutter/material.dart';
@@ -14,20 +15,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<ArticalModel>? x;
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    get();
-  }
-
-  get() async {
-    ApiServices api = ApiServices();
-    x = await api.getdata();
-    setState(() {});
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,22 +43,12 @@ class _HomeScreenState extends State<HomeScreen> {
         body: CustomScrollView(
           slivers: [
             SliverToBoxAdapter(
-              child: SizedBox(height: 120, child: CategoryListview()),
+              child: SizedBox(
+                height: 120,
+                child: CategoryListview(),
+              ),
             ),
-            x == null
-                ? Center(
-                    child: CircularProgressIndicator(),
-                  )
-                : SliverToBoxAdapter(
-                    child: ListView.builder(
-                      shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
-                      itemCount: x!.length,
-                      itemBuilder: (context, index) {
-                        return Articlecard(a: x![index]);
-                      },
-                    ),
-                  )
+            ArticleListview()
           ],
         ));
   }
@@ -119,3 +96,19 @@ CustomScrollView(
           ],
         ) 
 */
+/*
+  x == null
+                ? const SliverFillRemaining(
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  )
+                : SliverList(
+                    delegate: SliverChildBuilderDelegate(
+                      (context, index) {
+                        return Articlecard(a: x![index]);
+                      },
+                      childCount: x!.length,
+                    ),
+                  ),
+*/ 

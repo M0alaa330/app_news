@@ -5,10 +5,10 @@ class CategoryModel {
 }
 
 List<CategoryModel> categorymodel = [
-  CategoryModel(image: "assets/images/general.jpg", title: "General"),
-  CategoryModel(image: "assets/images/science.jpg", title: "Science"),
-  CategoryModel(image: "assets/images/bussiness.jpg", title: "Business"),
-  CategoryModel(image: "assets/images/health.jpg", title: "Health"),
-  CategoryModel(image: "assets/images/sport.jpg", title: "Sport"),
-  CategoryModel(image: "assets/images/technology.jpg", title: "Technology"),
+  CategoryModel(image: "assets/images/general.jpg", title: "entertainment"),
+  CategoryModel(image: "assets/images/science.jpg", title: "science"),
+  CategoryModel(image: "assets/images/bussiness.jpg", title: "business"),
+  CategoryModel(image: "assets/images/health.jpg", title: "health"),
+  CategoryModel(image: "assets/images/sport.jpg", title: "sport"),
+  CategoryModel(image: "assets/images/technology.jpg", title: "technology"),
 ];

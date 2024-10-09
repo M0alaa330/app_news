@@ -1,4 +1,6 @@
+import 'package:app_news/models/category_model.dart';
 import 'package:app_news/screens/articledetails_screen.dart';
+import 'package:app_news/screens/category_screen.dart';
 import 'package:app_news/screens/homescreen.dart';
 
 import 'package:flutter/material.dart';
@@ -14,7 +16,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: {"articledetails": (context) => ArticledetailsScreen()},
       debugShowCheckedModeBanner: false,
       home: HomeScreen(),
     );
