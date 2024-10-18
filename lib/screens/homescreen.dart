@@ -1,20 +1,12 @@
-import 'package:app_news/apis/api_services.dart';
-import 'package:app_news/models/artical_model.dart';
 import 'package:app_news/widgets/article_listview.dart';
-import 'package:app_news/widgets/articlecard.dart';
 import 'package:app_news/widgets/category_listview.dart';
 import 'package:flutter/material.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({
     super.key,
   });
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,6 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
         ));
   }
 }
+
 /*
 Column(
           children: [
