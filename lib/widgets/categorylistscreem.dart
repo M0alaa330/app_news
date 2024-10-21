@@ -1,7 +1,5 @@
 import 'package:app_news/auth/cubit.dart';
 import 'package:app_news/auth/state.dart';
-import 'package:app_news/models/artical_model.dart';
-import 'package:app_news/models/category_model.dart';
 import 'package:app_news/widgets/articlecard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,13 +15,13 @@ class categorylist extends StatelessWidget {
       builder: (context, state) {
         if (state is LoadedState) {
           return SliverList.builder(
-              itemCount: state.articles.length,
+              itemCount: state.articles!.length,
               itemBuilder: (context, index) {
-                return Articlecard(a: state.articles[index]);
+                return Articlecard(a: state.articles![index]);
               });
         } else if (state is ErrorState) {
           return SliverToBoxAdapter(
-            child: Text(state.error),
+            child: Text(state.error!),
           );
         } else {
           return SliverToBoxAdapter(

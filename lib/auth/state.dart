@@ -7,12 +7,12 @@ class InitialState extends AppState {}
 class LoadingState extends AppState {}
 
 class LoadedState extends AppState {
-  final List<ArticalModel> articles;
+  List<ArticalModel>? articles;
 
-  LoadedState({required this.articles});
+  LoadedState(this.articles);
 }
 
 class ErrorState extends AppState {
-  final String error;
-  ErrorState({required this.error});
+  String? error;
+  ErrorState(this.error);
 }

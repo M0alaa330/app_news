@@ -1,7 +1,5 @@
-import 'package:app_news/apis/api_services.dart';
 import 'package:app_news/auth/cubit.dart';
 import 'package:app_news/auth/state.dart';
-import 'package:app_news/models/artical_model.dart';
 import 'package:app_news/widgets/articlecard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -12,18 +10,17 @@ class ArticleListview extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<Newscubit, AppState>(builder: (context, state) {
+      print(state);
       if (state is LoadedState) {
-        return SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              return Articlecard(a: state.articles[index]);
-            },
-            childCount: state.articles.length,
-          ),
+        return SliverList.builder(
+          itemCount: state.articles!.length,
+          itemBuilder: (context, index) {
+            return Articlecard(a: state.articles![index]);
+          },
         );
       } else if (state is ErrorState) {
         return SliverToBoxAdapter(
-          child: Text(state.error),
+          child: Text(state.error!),
         );
       } else {
         return SliverToBoxAdapter(
